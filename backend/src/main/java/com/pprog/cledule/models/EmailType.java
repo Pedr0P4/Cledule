@@ -1,12 +1,29 @@
 package com.pprog.cledule.models;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class EmailType {
     private String emailName;
     private String emailDomain;
 
-    static public boolean isValid(String email){}
-    static public String getOtherEmailName(String email){}
-    static public String getOtherEmailDomain(String email){}
+    private static final Pattern PADRAO_EMAIL = Pattern.compile("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,6}$", Pattern.CASE_INSENSITIVE);
+
+    static public boolean isValid(String email){
+        if(email == null || email.isEmpty()){
+            return false;
+        }
+        Matcher matcher = PADRAO_EMAIL.matcher(email);
+        return matcher.matches();
+    }
+    static public String getOtherEmailName(String email){
+        if(!isValid(email)) return null;
+        return email.substring(0, email.indexOf("@"));
+    }
+    static public String getOtherEmailDomain(String email){
+        if(!isValid(email)) return null;
+        return email.substring(email.indexOf("@")+1);
+    }
 
     public EmailType(){}
 
