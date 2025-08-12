@@ -10,11 +10,11 @@ public class EmailType {
     private static final Pattern PADRAO_EMAIL = Pattern.compile("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,6}$", Pattern.CASE_INSENSITIVE);
 
     static public boolean isValid(String email){
-        if(email == null || email.isEmpty()){
-            return false;
+        if(email != null) {
+            Matcher matcher = PADRAO_EMAIL.matcher(email);
+            if(!email.isEmpty()) return matcher.matches();
         }
-        Matcher matcher = PADRAO_EMAIL.matcher(email);
-        return matcher.matches();
+        return false;
     }
     static public String getOtherEmailName(String email){
         if(!isValid(email)) return null;
@@ -46,5 +46,10 @@ public class EmailType {
 
     public void setEmailDomain(String emailDomain) {
         this.emailDomain = emailDomain;
+    }
+
+    @Override
+    public String toString() {
+        return emailName + "@" +  emailDomain;
     }
 }
