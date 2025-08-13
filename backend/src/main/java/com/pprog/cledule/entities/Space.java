@@ -1,7 +1,9 @@
 package com.pprog.cledule.entities;
 
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 public class Space implements Serializable {
     private static final long serialVersionUID = 1L;
@@ -11,13 +13,18 @@ public class Space implements Serializable {
     private int capacity;
     private int floor;
 
+    private Department department;
+    private Set<Equipment> equipments =  new HashSet<>();
+    private Set<Reservation> reservations =  new HashSet<>();
+
     public Space() {}
 
-    public Space(Long id, String name, int capacity, int floor) {
+    public Space(Long id, String name, int capacity, int floor, Department department) {
         this.id = id;
         this.name = name;
         this.capacity = capacity;
         this.floor = floor;
+        this.department = department;
     }
 
     public Long getId() {
@@ -50,6 +57,22 @@ public class Space implements Serializable {
 
     public void setFloor(int floor) {
         this.floor = floor;
+    }
+
+    public Department getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(Department department) {
+        this.department = department;
+    }
+
+    public Set<Equipment> getEquipments() {
+        return equipments;
+    }
+
+    public Set<Reservation> getReservations() {
+        return reservations;
     }
 
     @Override

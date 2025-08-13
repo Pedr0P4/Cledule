@@ -5,19 +5,19 @@ import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
-public class Division implements Serializable {
-    private static final long serialVersionUID = 1L;
+public class Equipment implements Serializable {
+    private static final Long  serialVersionUID = 1L;
 
     private Long id;
     private String name;
 
-    private Set<Department> departments = new HashSet<>();
+    private Set<Space> spaces =  new HashSet<>();
 
-    public Division(){}
+    public Equipment() {}
 
-    public Division(Long id, String name){
+    public Equipment(Long id, String name) {
         this.id = id;
-        this.name  = name;
+        this.name = name;
     }
 
     public Long getId() {
@@ -36,15 +36,15 @@ public class Division implements Serializable {
         this.name = name;
     }
 
-    public Set<Department> getDepartments() {
-        return departments;
+    public Set<Space> getSpaces() {
+        return spaces;
     }
 
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
-        Division division = (Division) o;
-        return Objects.equals(id, division.id);
+        Equipment equipment = (Equipment) o;
+        return Objects.equals(id, equipment.id);
     }
 
     @Override

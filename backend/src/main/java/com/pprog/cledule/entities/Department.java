@@ -1,6 +1,7 @@
 package com.pprog.cledule.entities;
 
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
@@ -10,13 +11,15 @@ public class Department implements Serializable {
     private Long id;
     private String name;
 
-    private Set<Space> spaces;
+    private Division division;
+    private Set<Space> spaces =  new HashSet<>();
 
     public Department () {}
 
-    public Department (Long id, String name) {
+    public Department(Long id, String name, Division division) {
         this.id = id;
-        this.name   = name;
+        this.name = name;
+        this.division = division;
     }
 
     public Long getId() {
@@ -33,6 +36,14 @@ public class Department implements Serializable {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Division getDivision() {
+        return division;
+    }
+
+    public void setDivision(Division division) {
+        this.division = division;
     }
 
     public Set<Space> getSpaces() {

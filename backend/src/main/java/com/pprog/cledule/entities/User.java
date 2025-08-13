@@ -3,7 +3,9 @@ package com.pprog.cledule.entities;
 import com.pprog.cledule.models.EmailType;
 
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 public class User implements Serializable {
     private static final long serialVersionUID = 1L;
@@ -11,6 +13,8 @@ public class User implements Serializable {
     private Long id;
     private String name;
     private EmailType email;
+
+    private Set<Reservation> reservations = new HashSet<>();
 
     public User(){}
 
@@ -42,6 +46,10 @@ public class User implements Serializable {
 
     public void setEmail(EmailType email) {
         this.email = email;
+    }
+
+    public Set<Reservation> getReservations() {
+        return reservations;
     }
 
     @Override
