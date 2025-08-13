@@ -1,5 +1,6 @@
 package com.pprog.cledule.entities;
 
+import com.pprog.cledule.enums.Role;
 import com.pprog.cledule.models.EmailType;
 
 import java.io.Serializable;
@@ -12,36 +13,46 @@ public class User implements Serializable {
 
     private Long id;
     private String name;
+    private Role role;
     private EmailType email;
 
     private Set<Reservation> reservations = new HashSet<>();
 
     public User(){}
 
-    public User(Long id, String name, EmailType email) {
+    public User(Long id, String name, Role role, EmailType email) {
         this.id = id;
+        this.name = name;
+        this.role = role;
         this.email = email;
-        this.name   = name;
     }
 
     public Long getId() {
         return id;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public EmailType getEmail() {
-        return email;
-    }
-
     public void setId(Long id) {
         this.id = id;
     }
 
+    public String getName() {
+        return name;
+    }
+
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
+    }
+
+    public EmailType getEmail() {
+        return email;
     }
 
     public void setEmail(EmailType email) {

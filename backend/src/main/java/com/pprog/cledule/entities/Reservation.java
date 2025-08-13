@@ -1,5 +1,6 @@
 package com.pprog.cledule.entities;
 
+import com.pprog.cledule.enums.ReservationStatus;
 import com.pprog.cledule.models.EmailType;
 
 import java.io.Serializable;
@@ -13,16 +14,18 @@ public class Reservation implements Serializable {
     private String eventName;
     private LocalDateTime start;
     private LocalDateTime end;
+    private ReservationStatus status;
 
     private User user;
 
     public Reservation() {}
 
-    public Reservation(Long id, String eventName, LocalDateTime start, LocalDateTime end, User user) {
+    public Reservation(Long id, String eventName, LocalDateTime start, LocalDateTime end, ReservationStatus status, User user) {
         this.id = id;
         this.eventName = eventName;
         this.start = start;
         this.end = end;
+        this.status = status;
         this.user = user;
     }
 
@@ -56,6 +59,14 @@ public class Reservation implements Serializable {
 
     public void setEnd(LocalDateTime end) {
         this.end = end;
+    }
+
+    public ReservationStatus getStatus() {
+        return status;
+    }
+
+    public void setStatus(ReservationStatus status) {
+        this.status = status;
     }
 
     public User getUser() {
