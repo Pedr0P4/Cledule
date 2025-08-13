@@ -13,14 +13,14 @@ public class User implements Serializable {
 
     private Long id;
     private String name;
+    private String email;
     private Role role;
-    private EmailType email;
 
     private Set<Reservation> reservations = new HashSet<>();
 
     public User(){}
 
-    public User(Long id, String name, Role role, EmailType email) {
+    public User(Long id, String name, Role role, String email) {
         this.id = id;
         this.name = name;
         this.role = role;
@@ -51,12 +51,14 @@ public class User implements Serializable {
         this.role = role;
     }
 
-    public EmailType getEmail() {
+    public String getEmail() {
         return email;
     }
 
-    public void setEmail(EmailType email) {
-        this.email = email;
+    public void setEmail(String email) {
+        if(EmailType.isValid(email)){
+            this.email = email;
+        }
     }
 
     public Set<Reservation> getReservations() {
