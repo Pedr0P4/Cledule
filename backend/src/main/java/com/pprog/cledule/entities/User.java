@@ -1,7 +1,7 @@
 package com.pprog.cledule.entities;
 
 import com.pprog.cledule.enums.Role;
-import com.pprog.cledule.models.EmailType;
+import com.pprog.cledule.models.EmailUtils;
 
 import java.io.Serializable;
 import java.util.HashSet;
@@ -56,7 +56,7 @@ public class User implements Serializable {
     }
 
     public void setEmail(String email) {
-        if(EmailType.isValid(email)){
+        if(EmailUtils.isValid(email)){
             this.email = email;
         }
     }

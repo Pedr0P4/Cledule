@@ -1,7 +1,6 @@
 package com.pprog.cledule.entities;
 
 import com.pprog.cledule.enums.ReservationStatus;
-import com.pprog.cledule.models.EmailType;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
