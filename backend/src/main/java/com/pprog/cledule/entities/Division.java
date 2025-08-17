@@ -1,31 +1,21 @@
 package com.pprog.cledule.entities;
 
-import java.io.Serializable;
+import jakarta.persistence.Entity;
+
 import java.util.HashSet;
-import java.util.Objects;
 import java.util.Set;
 
-public class Division implements Serializable {
-    private static final long serialVersionUID = 1L;
+@Entity
+public class Division extends  BaseEntity {
 
-    private Long id;
     private String name;
 
     private Set<Department> departments = new HashSet<>();
 
     public Division(){}
 
-    public Division(Long id, String name){
-        this.id = id;
+    public Division(String name){
         this.name  = name;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public String getName() {
@@ -38,17 +28,5 @@ public class Division implements Serializable {
 
     public Set<Department> getDepartments() {
         return departments;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (o == null || getClass() != o.getClass()) return false;
-        Division division = (Division) o;
-        return Objects.equals(id, division.id);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hashCode(id);
     }
 }

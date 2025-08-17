@@ -1,14 +1,13 @@
 package com.pprog.cledule.entities;
 
-import java.io.Serializable;
+import jakarta.persistence.Entity;
+
 import java.util.HashSet;
-import java.util.Objects;
 import java.util.Set;
 
-public class Space implements Serializable {
-    private static final long serialVersionUID = 1L;
+@Entity
+public class Space extends BaseEntity {
 
-    private Long id;
     private String name;
     private int capacity;
     private int floor;
@@ -19,20 +18,11 @@ public class Space implements Serializable {
 
     public Space() {}
 
-    public Space(Long id, String name, int capacity, int floor, Department department) {
-        this.id = id;
+    public Space(String name, int capacity, int floor, Department department) {
         this.name = name;
         this.capacity = capacity;
         this.floor = floor;
         this.department = department;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public String getName() {
@@ -73,17 +63,5 @@ public class Space implements Serializable {
 
     public Set<Reservation> getReservations() {
         return reservations;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (o == null || getClass() != o.getClass()) return false;
-        Space space = (Space) o;
-        return Objects.equals(id, space.id);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hashCode(id);
     }
 }

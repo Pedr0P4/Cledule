@@ -1,15 +1,13 @@
 package com.pprog.cledule.entities;
 
 import com.pprog.cledule.enums.ReservationStatus;
+import jakarta.persistence.Entity;
 
-import java.io.Serializable;
 import java.time.LocalDateTime;
-import java.util.Objects;
 
-public class Reservation implements Serializable {
-    private static final long serialVersionUID = 1L;
+@Entity
+public class Reservation extends BaseEntity {
 
-    private Long id;
     private String eventName;
     private LocalDateTime start;
     private LocalDateTime end;
@@ -19,21 +17,12 @@ public class Reservation implements Serializable {
 
     public Reservation() {}
 
-    public Reservation(Long id, String eventName, LocalDateTime start, LocalDateTime end, ReservationStatus status, User user) {
-        this.id = id;
+    public Reservation(String eventName, LocalDateTime start, LocalDateTime end, ReservationStatus status, User user) {
         this.eventName = eventName;
         this.start = start;
         this.end = end;
         this.status = status;
         this.user = user;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public String getEventName() {
@@ -74,17 +63,5 @@ public class Reservation implements Serializable {
 
     public void setUser(User user) {
         this.user = user;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (o == null || getClass() != o.getClass()) return false;
-        Reservation that = (Reservation) o;
-        return Objects.equals(id, that.id);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hashCode(id);
     }
 }

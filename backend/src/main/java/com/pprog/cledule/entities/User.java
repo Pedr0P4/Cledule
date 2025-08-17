@@ -2,16 +2,15 @@ package com.pprog.cledule.entities;
 
 import com.pprog.cledule.enums.Role;
 import com.pprog.cledule.models.EmailUtils;
+import jakarta.persistence.*;
 
-import java.io.Serializable;
 import java.util.HashSet;
-import java.util.Objects;
 import java.util.Set;
 
-public class User implements Serializable {
-    private static final long serialVersionUID = 1L;
+@Entity
+@Table(name = "users")
+public class User extends  BaseEntity {
 
-    private Long id;
     private String name;
     private String email;
     private Role role;
@@ -20,19 +19,10 @@ public class User implements Serializable {
 
     public User(){}
 
-    public User(Long id, String name, Role role, String email) {
-        this.id = id;
+    public User(String name, Role role, String email) {
         this.name = name;
         this.role = role;
         this.email = email;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public String getName() {
@@ -63,17 +53,5 @@ public class User implements Serializable {
 
     public Set<Reservation> getReservations() {
         return reservations;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (o == null || getClass() != o.getClass()) return false;
-        User user = (User) o;
-        return Objects.equals(id, user.id);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hashCode(id);
     }
 }
