@@ -1,7 +1,6 @@
 package com.pprog.cledule.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -19,8 +18,11 @@ public class Department extends BaseEntity {
 
     private String name;
 
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "division_id")
     private Division division;
     @Setter(AccessLevel.NONE)
+    @OneToMany(mappedBy = "department", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<Space> spaces =  new HashSet<>();
 
     public Department(String name, Division division) {

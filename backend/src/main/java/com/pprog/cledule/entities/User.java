@@ -21,8 +21,9 @@ public class User extends  BaseEntity {
     private String name;
     private String email;
     private Role role;
-    
+
     @Setter(AccessLevel.NONE)
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<Reservation> reservations = new HashSet<>();
 
     public User(String name, Role role, String email) {

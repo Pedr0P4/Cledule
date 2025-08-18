@@ -1,6 +1,7 @@
 package com.pprog.cledule.entities;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -20,6 +21,7 @@ public class Equipment extends BaseEntity {
     private String name;
 
     @Setter(AccessLevel.NONE)
+    @ManyToMany(mappedBy = "equipments")
     private Set<Space> spaces =  new HashSet<>();
 
     public Equipment(String name) {
