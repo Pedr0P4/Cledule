@@ -1,10 +1,7 @@
 package com.pprog.cledule.entities;
 
 import com.pprog.cledule.enums.ReservationStatus;
-import jakarta.persistence.Entity;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -19,19 +16,23 @@ import java.time.LocalDateTime;
 public class Reservation extends BaseEntity {
 
     private String eventName;
-    private LocalDateTime start;
-    private LocalDateTime end;
+    private LocalDateTime eventStart;
+    private LocalDateTime eventEnd;
     private ReservationStatus status;
 
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
+    @ManyToOne
+    @JoinColumn(name = "space_id")
+    private Space space;
 
-    public Reservation(String eventName, LocalDateTime start, LocalDateTime end, ReservationStatus status, User user) {
+    public Reservation(String eventName, LocalDateTime eventStart, LocalDateTime eventEnd, ReservationStatus status, User user, Space space) {
         this.eventName = eventName;
-        this.start = start;
-        this.end = end;
+        this.eventStart = eventStart;
+        this.eventEnd = eventEnd;
         this.status = status;
         this.user = user;
+        this.space = space;
     }
 }
