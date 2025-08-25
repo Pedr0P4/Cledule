@@ -7,18 +7,22 @@ function Top() {
         <img src={logoProv} alt="logo-prov" className="h-20 m-4" />
       </div>
       <div className="flex m-5">
-        <h3 className="cursor-pointer border-b-2 h-8 w-25 m-4 text-xl text-center">
-          Início
-        </h3>
-        <h3 className="cursor-pointer border-b-2 h-8 w-25 m-4 text-xl text-center">
-          Sobre
-        </h3>
+        <div className="w-30 mx-1">
+          <h3 className="cursor-pointer m-auto border-b-2 w-20 my-2 h-8 text-xl text-center transition-all ease-in-out hover:w-full">
+            Início
+          </h3>
+        </div>
+        <div className="w-30 mx-1">
+          <h3 className="cursor-pointer m-auto border-b-2 w-20 my-2 h-8 text-xl text-center transition-all ease-in-out hover:w-full">
+            Sobre
+          </h3>
+        </div>
       </div>
       <div className="flex m-5">
-        <button className="cursor-pointer bg-neutral-500 text-white block m-1 p-3">
+        <button className="cursor-pointer bg-neutral-500 text-white block m-1 p-3 transition ease-in-out hover:bg-neutral-600">
           Registrar
         </button>
-        <button className="cursor-pointer bg-neutral-500 text-white block m-1 p-3">
+        <button className="cursor-pointer bg-neutral-500 text-white block m-1 p-3 transition ease-in-out hover:bg-neutral-600">
           Entrar
         </button>
       </div>
