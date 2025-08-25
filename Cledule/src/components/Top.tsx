@@ -1,16 +1,24 @@
+import logoProv from "../assets/logo-prov.png";
+
 function Top() {
   return (
-    <div className="bg-slate-300 flex justify-between">
+    <div className="bg-neutral-200 h-25 flex justify-between items-center">
       <div>
-        <img src="" alt="logo-prov" />
+        <img src={logoProv} alt="logo-prov" className="h-20 m-4" />
       </div>
       <div className="flex m-5">
-        <h3 className="border-b-2 h-7">Início</h3>
-        <h3 className="border-b-2 h-7 ml-2">Sobre</h3>
+        <h3 className="cursor-pointer border-b-2 h-8 w-25 m-4 text-xl text-center">
+          Início
+        </h3>
+        <h3 className="cursor-pointer border-b-2 h-8 w-25 m-4 text-xl text-center">
+          Sobre
+        </h3>
       </div>
       <div className="flex m-5">
-        <button className="bg-slate-500 text-white block p-2">Registrar</button>
-        <button className="bg-slate-500 text-white block p-2 ml-2">
+        <button className="cursor-pointer bg-neutral-500 text-white block m-1 p-3">
+          Registrar
+        </button>
+        <button className="cursor-pointer bg-neutral-500 text-white block m-1 p-3">
           Entrar
         </button>
       </div>
