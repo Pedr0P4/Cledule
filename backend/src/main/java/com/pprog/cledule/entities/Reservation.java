@@ -22,17 +22,17 @@ public class Reservation extends BaseEntity {
 
     @ManyToOne
     @JoinColumn(name = "user_id")
-    private User user;
+    private ClassUser classUser;
     @ManyToOne
     @JoinColumn(name = "space_id")
     private Space space;
 
-    public Reservation(String eventName, LocalDateTime eventStart, LocalDateTime eventEnd, ReservationStatus status, User user, Space space) {
+    public Reservation(String eventName, LocalDateTime eventStart, LocalDateTime eventEnd, ReservationStatus status, ClassUser classUser, Space space) {
         this.eventName = eventName;
         this.eventStart = eventStart;
         this.eventEnd = eventEnd;
         this.status = status;
-        this.user = user;
+        this.classUser = classUser;
         this.space = space;
     }
 }

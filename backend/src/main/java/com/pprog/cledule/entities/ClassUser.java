@@ -15,7 +15,7 @@ import java.util.Set;
 @NoArgsConstructor
 @Getter
 @Setter
-public class User extends  BaseEntity {
+public class ClassUser extends  BaseEntity {
 
     private String name;
     private String email;
@@ -25,7 +25,7 @@ public class User extends  BaseEntity {
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<Reservation> reservations = new HashSet<>();
 
-    public User(String name, Role role, String email) {
+    public ClassUser(String name, Role role, String email) {
         this.name = name;
         this.role = role;
         this.email = email;
