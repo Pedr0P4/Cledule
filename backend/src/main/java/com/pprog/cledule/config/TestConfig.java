@@ -32,10 +32,10 @@ public class TestConfig implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 
-        ClassUser cu1 = new ClassUser("Pedro Paulo", Role.INSTRUCTOR, "pedro@gmail.com");
-        ClassUser cu2 = new ClassUser("Cecília Cerqueira", Role.TUTOR, "cecilia@gmail.com");
+        SpaceUser su1 = new SpaceUser("Pedro Paulo", Role.INSTRUCTOR, "pedro@gmail.com");
+        SpaceUser su2 = new SpaceUser("Cecília Cerqueira", Role.TUTOR, "cecilia@gmail.com");
 
-        classUserRepository.saveAll(Arrays.asList(cu1, cu2));
+        classUserRepository.saveAll(Arrays.asList(su1, su2));
 
         Division dv1 = new Division("Division 1");
 
@@ -72,10 +72,10 @@ public class TestConfig implements CommandLineRunner {
 
         equipmentRepository.saveAll(Arrays.asList(e1, e2, e3, e4));
 
-        Reservation r1 = new Reservation("Aula de LP1", LocalDateTime.now(), LocalDateTime.of(2025, 8, 20, 14, 0), ReservationStatus.WAITING, cu1, s2);
-        Reservation r2 = new Reservation("Aula de Histologia", LocalDateTime.now(), LocalDateTime.of(2025, 8, 22, 16, 0), ReservationStatus.WAITING, cu2, s1);
-        Reservation r3 = new Reservation("Aula de APOO", LocalDateTime.now(), LocalDateTime.of(2025, 8, 19, 12, 0), ReservationStatus.WAITING, cu1, s4);
-        Reservation r4 = new Reservation("Aula de Anatomia", LocalDateTime.now(), LocalDateTime.of(2025, 8, 24, 7, 30), ReservationStatus.WAITING, cu2, s3);
+        Reservation r1 = new Reservation("Aula de LP1", LocalDateTime.now(), LocalDateTime.of(2025, 8, 20, 14, 0), ReservationStatus.WAITING, su1, s2);
+        Reservation r2 = new Reservation("Aula de Histologia", LocalDateTime.now(), LocalDateTime.of(2025, 8, 22, 16, 0), ReservationStatus.WAITING, su2, s1);
+        Reservation r3 = new Reservation("Aula de APOO", LocalDateTime.now(), LocalDateTime.of(2025, 8, 19, 12, 0), ReservationStatus.WAITING, su1, s4);
+        Reservation r4 = new Reservation("Aula de Anatomia", LocalDateTime.now(), LocalDateTime.of(2025, 8, 24, 7, 30), ReservationStatus.WAITING, su2, s3);
 
         reservationRepository.saveAll(Arrays.asList(r1, r2, r3, r4));
 

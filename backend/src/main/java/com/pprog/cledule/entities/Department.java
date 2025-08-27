@@ -21,9 +21,14 @@ public class Department extends BaseEntity {
     @ManyToOne(optional = false)
     @JoinColumn(name = "division_id")
     private Division division;
+
     @Setter(AccessLevel.NONE)
     @OneToMany(mappedBy = "department", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<Space> spaces =  new HashSet<>();
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User createdBy;
 
     public Department(String name, Division division) {
         this.name = name;

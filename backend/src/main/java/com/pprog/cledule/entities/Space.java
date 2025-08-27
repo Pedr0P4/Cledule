@@ -20,13 +20,19 @@ public class Space extends BaseEntity {
     @ManyToOne(optional = false)
     @JoinColumn(name = "department_id")
     private Department department;
+
     @Setter(AccessLevel.NONE)
     @ManyToMany
     @JoinTable(name = "tb_space_equipment", joinColumns = @JoinColumn(name = "space_id"), inverseJoinColumns = @JoinColumn(name = "equipment_id"))
     private Set<Equipment> equipments =  new HashSet<>();
+
     @Setter(AccessLevel.NONE)
     @OneToMany(mappedBy = "space")
     private Set<Reservation> reservations =  new HashSet<>();
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User createdBy;
 
     public Space(String name, int capacity, int floor, Department department) {
         this.name = name;

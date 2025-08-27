@@ -11,11 +11,11 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@Table(name = "users")
+@Table(name = "class_users")
 @NoArgsConstructor
 @Getter
 @Setter
-public class ClassUser extends  BaseEntity {
+public class SpaceUser extends  BaseEntity {
 
     private String name;
     private String email;
@@ -25,7 +25,7 @@ public class ClassUser extends  BaseEntity {
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<Reservation> reservations = new HashSet<>();
 
-    public ClassUser(String name, Role role, String email) {
+    public SpaceUser(String name, Role role, String email) {
         this.name = name;
         this.role = role;
         this.email = email;

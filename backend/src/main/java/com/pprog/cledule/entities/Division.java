@@ -2,6 +2,8 @@ package com.pprog.cledule.entities;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AccessLevel;
@@ -24,6 +26,10 @@ public class Division extends  BaseEntity {
     @Setter(AccessLevel.NONE)
     @OneToMany(mappedBy = "division", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<Department> departments = new HashSet<>();
+
+    @ManyToOne
+    @JoinColumn(name = "general_admin_id")
+    private GeneralAdmin createdBy;
 
     public Division(String name){
         this.name  = name;
