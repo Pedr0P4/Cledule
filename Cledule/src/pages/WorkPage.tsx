@@ -6,7 +6,7 @@ import Option from "../components/Option";
 
 function WorkPage() {
   return (
-    <div>
+    <div className="flex flex-row relative w-screen h-screen">
       <div className="bg-neutral-200 h-screen w-70 flex flex-col relative">
         <div className="p-4 flex items-center">
           <img src={profileProv} alt="Provisory profile" />
@@ -51,6 +51,14 @@ function WorkPage() {
             <span className="p-2 text-neutral-400 font-semibold hover:cursor-default">
               Version 1.0
             </span>
+          </div>
+        </div>
+      </div>
+
+      <div className="w-full">
+        <div className="border-2 p-8">
+          <div className="flex flex-col">
+            <input type="text" className="bg-neutral-200 w-1/3 h-10" />
           </div>
         </div>
       </div>
