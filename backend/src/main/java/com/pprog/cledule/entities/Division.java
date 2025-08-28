@@ -31,7 +31,8 @@ public class Division extends  BaseEntity {
     @JoinColumn(name = "general_admin_id")
     private GeneralAdmin createdBy;
 
-    public Division(String name){
+    public Division(String name, GeneralAdmin createdBy){
         this.name  = name;
+        this.createdBy = createdBy;
     }
 }

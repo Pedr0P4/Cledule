@@ -21,18 +21,24 @@ public class Reservation extends BaseEntity {
     private ReservationStatus status;
 
     @ManyToOne
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "space_user_id")
     private SpaceUser spaceUser;
+
     @ManyToOne
     @JoinColumn(name = "space_id")
     private Space space;
 
-    public Reservation(String eventName, LocalDateTime eventStart, LocalDateTime eventEnd, ReservationStatus status, SpaceUser spaceUser, Space space) {
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User createdBy;
+
+    public Reservation(String eventName, LocalDateTime eventStart, LocalDateTime eventEnd, ReservationStatus status, SpaceUser spaceUser, Space space, User createdBy) {
         this.eventName = eventName;
         this.eventStart = eventStart;
         this.eventEnd = eventEnd;
         this.status = status;
         this.spaceUser = spaceUser;
         this.space = space;
+        this.createdBy = createdBy;
     }
 }

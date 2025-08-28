@@ -34,10 +34,11 @@ public class Space extends BaseEntity {
     @JoinColumn(name = "user_id")
     private User createdBy;
 
-    public Space(String name, int capacity, int floor, Department department) {
+    public Space(String name, int capacity, int floor, Department department, User createdBy) {
         this.name = name;
         this.capacity = capacity;
         this.floor = floor;
         this.department = department;
+        this.createdBy = createdBy;
     }
 }

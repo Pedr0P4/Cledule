@@ -30,8 +30,9 @@ public class Department extends BaseEntity {
     @JoinColumn(name = "user_id")
     private User createdBy;
 
-    public Department(String name, Division division) {
+    public Department(String name, Division division, User createdBy) {
         this.name = name;
         this.division = division;
+        this.createdBy = createdBy;
     }
 }

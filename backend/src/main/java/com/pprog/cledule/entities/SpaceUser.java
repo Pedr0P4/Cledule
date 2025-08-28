@@ -22,7 +22,7 @@ public class SpaceUser extends  BaseEntity {
     private Role role;
 
     @Setter(AccessLevel.NONE)
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "spaceUser", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<Reservation> reservations = new HashSet<>();
 
     public SpaceUser(String name, Role role, String email) {
